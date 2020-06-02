@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Article -- {{ article.title }} Update
+{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="text-white">Article -- {{ article.title }} Update</h1>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}

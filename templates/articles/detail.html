@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Article -- {{ article.title }}
+{% endblock%}
+
+{% block content %}
+    <div class="row text-white">
+        <div class="col-md-8">
+            <h1 class="text-center text-white">{{ article.title }}</h1>
+            <h6 class="text-muted lead">{{ article.date }}</h6>
+            <p>{{ article.body|linebreaks }}</p>
+            <footer class="footer">
+                <p class="lead">by {{ article.author|capfirst }}</p>
+            </footer>
+            <a href="{{ article.get_update_url }}" class="btn btn-success">Edit</a>
+            <a href="{{ article.get_delete_url }}" class="btn btn-danger">Delete</a>
+
+            <h5>Back to all <a href="{% url 'article-list' %}">articles</a></h5>
+        </div>
+    </div>
+
+
+{% endblock %}
