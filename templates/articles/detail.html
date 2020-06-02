@@ -5,7 +5,7 @@
 {% endblock%}
 
 {% block content %}
-    <div class="row text-white">
+    <div class="row text-dark border bg-white">
         <div class="col-md-8">
             <h1 class="text-center text-white">{{ article.title }}</h1>
             <h6 class="text-muted lead">{{ article.date }}</h6>
@@ -16,7 +16,17 @@
             <a href="{{ article.get_update_url }}" class="btn btn-success">Edit</a>
             <a href="{{ article.get_delete_url }}" class="btn btn-danger">Delete</a>
 
+            <div class="">
+                 {% for comment in article.comments.all %}
+                <p>
+                <span class="font-weight-bold">{{ comment.author }} &middot;</span>
+                {{ comment.body }}
+                </p>
+                {% endfor %}
+            </div>
+
             <h5>Back to all <a href="{% url 'article-list' %}">articles</a></h5>
+
         </div>
     </div>
 

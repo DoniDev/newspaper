@@ -6,11 +6,13 @@
 
 
 {% block content %}
-
-    <h1 class="text-white">Article -- {{ article.tite }} delete</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Delete</button>
-    </form> <br><br>
-    <a href="{{ article.get_absolute_url }}" class="btn btn-warning">Cancel</a>
+    <div class="text-dark border bg-white">
+        <h1>Article -- {{ article.tite }} delete</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form> <br><br>
+        <a href="{{ article.get_absolute_url }}" class="btn btn-warning">Cancel</a>
+    </div>
 {% endblock %}
+
